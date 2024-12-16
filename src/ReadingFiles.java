@@ -53,10 +53,9 @@ public class ReadingFiles {
                 //Starts at line 0 and moves line by line through the file
                 int line = 0;
                 //Rec holds what the reader finds on the line
-                String rec = "";
+                String rec;
                 String character;
                 int spaces = 0;
-                int totalSpaces = 0;
                 int words = 0;
                 int characters = 0;
 
