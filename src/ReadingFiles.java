@@ -1,12 +1,14 @@
 //Allows us to use the FileChooser wizard GUI to pick files
+
 import javax.swing.*;
-//Needed imports for working w/ IO (input/output)
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import static java.nio.file.StandardOpenOption.CREATE;
 
-public class  ReadingFiles {
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.values;
+
+public class ReadingFiles {
     //need to add the "throws IOException" after typical main phrase
     public static void main(String[] args) throws IOException   {
 
@@ -52,6 +54,11 @@ public class  ReadingFiles {
                 int line = 0;
                 //Rec holds what the reader finds on the line
                 String rec = "";
+                String character;
+                int spaces = 0;
+                int totalSpaces = 0;
+                int words = 0;
+                int characters = 0;
 
                 //Moving through file, reading, and printing each line of the selected file
                 while (reader.ready()) {
@@ -59,9 +66,24 @@ public class  ReadingFiles {
                     line++;
                     //Prints the line # and the contents of the line
                     System.out.printf("\nLine%4d: %-60s ", line, rec);
+                    for (int i = 0; i < rec.length(); i++) {
+                        characters++;
+                        if (rec.substring(i, i + 1).equals(" ")) {
+                            spaces++;
+                        }
+                    }
+
+                    words = spaces + line; //counts how many words are there based on the lines and spaces
                 }
+                //words--;
                 reader.close(); // must close the file to seal it and clear buffer
                 System.out.println("\n\nData file read!"); //Success message
+
+                System.out.println("\nFile summary:");
+                System.out.printf("%-22s %4d", "Number of lines:", line);
+                System.out.printf("\n%-22s %4d", "Number of spaces:", spaces);
+                System.out.printf("\n%-22s %4d", "Number of Words:", words);
+                System.out.printf("\n%-22s %4d", "Number of Characters:", characters);
 
                  /*
                     This is where the program stops displaying the read file to the user

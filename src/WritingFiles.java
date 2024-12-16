@@ -1,14 +1,15 @@
 //Allows us to use the FileChooser wizard GUI to pick files
-import javax.swing.*;
 //Needed imports for working w/ IO (input/output)
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
 import static java.nio.file.StandardOpenOption.CREATE;
 
-public class  WritingFiles {
+public class WritingFiles {
     //need to add the "throws IOException" after typical main phrase
     public static void main(String[] args) throws IOException   {
 
